@@ -1,0 +1,33 @@
+zuul:
+  routes:
+    customer-service:
+      service-id: customer-service
+    ProductService:
+      service-id: ProductService
+    cart-service:
+      service-id: cart-service
+    order-service:
+      service-id: order-service
+    redis-cache-service:
+      service-id: redis-cache-service
+    catalog-service:
+      service-id: catalog-service
+  host:
+    connect-timeout-milis: 2000
+    socket-timeout-milis: 5000
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS
+
+spring:
+  cloud:
+    stream:
+      bindings:
+        output:
+          destination: OrderItem
