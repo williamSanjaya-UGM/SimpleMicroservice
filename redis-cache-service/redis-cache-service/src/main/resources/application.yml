@@ -4,7 +4,3 @@ spring:
       bindings:
         input:
           destination: ProductStream
-
-logging:
-  file:
-    name: C:/Users/LENOVO/Desktop/Test/WilliamSimpleProject/ProductCache.log

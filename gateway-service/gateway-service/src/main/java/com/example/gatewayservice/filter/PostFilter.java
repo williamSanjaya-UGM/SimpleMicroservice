@@ -4,6 +4,7 @@ import com.google.common.io.CharStreams;
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 import com.netflix.zuul.exception.ZuulException;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.CharEncoding;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
