@@ -2,6 +2,7 @@ package com.example.gatewayservice.service;
 
 import com.example.gatewayservice.UserModel.UserRepository;
 import com.example.gatewayservice.controller.dto.UserDto;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -18,8 +19,8 @@ public class CustomerService {
     @Autowired
     private RestTemplate restTemplate;
 
-    public ResponseEntity<?> getCustomer(){
+    public UserDto getCustomer(){
         String email = SecurityContextHolder.getContext().getAuthentication().getName();
-        return restTemplate.getForEntity("http://customer-service/"+email, UserDto.class);
+        return restTemplate.getForObject("http://customer-service/"+email, UserDto.class);
     }
 }

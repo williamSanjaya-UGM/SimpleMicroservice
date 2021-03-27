@@ -1,10 +1,8 @@
 package com.example.gatewayservice.UserModel;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -17,9 +15,6 @@ public class ApplicationUser implements UserDetails {
     private String password;
     private Set<? extends GrantedAuthority> grantedAuthorities;
     private boolean isEnabled;
-
-    @Autowired
-    private PasswordEncoder passwordEncoder;
 
     public ApplicationUser(User user){
         this.username=user.getEmail();
